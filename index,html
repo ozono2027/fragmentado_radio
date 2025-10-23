@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fragmentado Radio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #121212;
+      color: white;
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #ff0000;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Fragmentado Radio</h1>
+    <button id="playPauseBtn">Play</button>
+  </div>
+
+  <script>
+    const btn = document.getElementById('playPauseBtn');
+    const audio = new Audio('http://fragmentado.radiostream321.com:5434/stream'); // Acá ponés el link de Mixxx
+
+    let playing = false;
+    btn.addEventListener('click', () => {
+      if (playing) {
+        audio.pause();
+        btn.textContent = 'Play';
+      } else {
+        audio.play();
+        btn.textContent = 'Pause';
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
